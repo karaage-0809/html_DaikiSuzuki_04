@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>チーズアカデミー</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/cheese.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+
+
+  <style>
+    body {
+        margin: 0;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        font-family: "DotGothic16", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      
+      .loop-bg {
+        background-image: url('./imgs/ground-dot3.jpg');
+        background-repeat: repeat-x;
+        background-size: contain;
+        height: 100vh;
+        width: 4000px;
+        position: relative;
+      }
+      
+      .hero {
+        width: 150px;
+        height: 150px;
+        position: fixed; /* ← ここを fixed に変更 */
+        bottom: 32px;
+        left: 100px; /* ← 画面内の位置を固定 */
+        background-image: url('./imgs/cheesehero.gif');
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: floating-y 1.8s ease-in-out infinite alternate-reverse;
+        z-index: 10;
+      }
+      
+      @keyframes floating-y {
+        0% {
+          transform: translateY(-10%);
+        }
+        100% {
+          transform: translateY(10%);
+        }
+      }
+
+      /* ポップアップのスタイル */
+      .popup {
+        position: absolute;
+        bottom: 60px;
+        background-color: white;
+        color: black;
+        padding: 2px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 30;
+        display: none;
+      }
+  </style>
+</head>
+<body>
+    <div class="loop-bg w-[12000px] relative">
+      <div class="hero"></div>
+  
+      <!-- メイン見出し -->
+      <div class="w-screen h-screen flex flex-col bg-yellow-300 items-center justify-center text-center relative z-50">
+        <h1 id="title" class="text-5xl md:text-7xl font-bold tracking-wider mb-4">CHEESE ACADEMY</h1>
+        <p class="text-base md:text-2xl mb-2">セカイを変えるチーズを作ろう！<span class="blinking">▼</span></p>
+        <p class="text-sm md:text-lg">チーズ職人養成学校「チーズアカデミーTOKYO」</p>
+      </div>
+  
+     <!-- 看板1 -->
+    <div class="human absolute bottom-16 left-[1600px] w-32 h-32 bg-no-repeat bg-contain z-21"
+    style="background-image: url('./imgs/human.gif');"
+    data-x="1600"></div>
+
+    <!-- ポップアップ1 -->
+    <div class="popup absolute top-60 left-[1600px] w-[800px] h-[200px] bg-black p-4 rounded shadow z-30 "
+    style="display: none; border: 2px solid white; border-radius: 12px;" data-x="1600">
+    <div class="text-xl font-bold mb-2 text-white">ABOUT</div>
+    <div class="text-sm leading-relaxed space-y-1 text-white ">
+        <p>「こんにちは。チーズアカデミーは、チーズ職人養成学校です。</p>
+        <p>　チーズの素晴らしさを、自給自足を通じて、できるだけ多くの人に知っていただきたい。</p>
+        <p>　そして、食卓にはいつもチーズがあった、あの頃の当たり前をこの手で取り戻したい。</p>
+        <p>　そんな思いから、チーズ職人養成学校「チーズアカデミーTOKYO」は歩みを始めています。</p>
+        <p>　卒業後、チーズ自給自足のバックアップはもちろんのこと、チーズ職人への就職・転職もサポートします。」<span class="blinking">▼</span></p>
+    </div>
+</div>
+  
+      <!-- 看板2 -->
+      <div class="signboard absolute bottom-32 left-[2800px] w-32 h-32 bg-no-repeat bg-contain z-21"
+           style="background-image: url('./imgs/signboard.gif');"
+           data-x="2800"></div>
+  
+           <div class="popup absolute top-64 left-[2800px] w-[550px] h-[150px] bg-black p-4 rounded shadow z-30"
+           style="display: none; border: 2px solid white; border-radius: 12px;" data-x="2400">
+        <div class="text-xl font-bold mb-2 text-white">COURSE</div>
+        <div class="text-sm leading-relaxed space-y-1 text-white ">
+          <p>　未経験からでもスタートができるよう、カリキュラムは多くの専門家や</p>
+          <p>　現役チーズ職人のアドバイスのもと、作られました。<span class="blinking">▼</span></p>
+        </div>
+       </div>
+       <!-- 看板3 -->
+       <div class="item absolute bottom-24 left-[4000px] w-60 h-60 bg-no-repeat bg-contain z-21"
+           style="background-image: url('./imgs/item.gif');"
+           data-x="4000"></div>
+  
+           <div class="popup absolute top-64 left-[4000px] w-[600px] h-[200px] bg-black p-4 rounded shadow z-30"
+           style="display: none; border: 2px solid white; border-radius: 12px;" data-x="4000">
+             <div class="text-xl font-bold mb-2 text-white">本格的な農園を使った実地研修 </div>
+             <div class="text-sm leading-relaxed space-y-1 text-white ">
+                <p>　チーズアカデミーでは、本格的な農園を使った実地研修を</p>
+                <p>　行うことができます。プロとして活躍するチーズ職人も</p>
+                <p>　使用するような、広大で環境も整った農園を余すところなく使い、</p>
+                <p>　卒業時には本格的なチーズを自分の力で作れる実践力の養成を目指します。<span class="blinking">▼</span></p>
+             </div>
+           </div>
+
+       <div class="monster absolute bottom-32 left-[5200px] w-32 h-32 bg-no-repeat bg-contain z-21"
+       style="background-image: url('./imgs/cheesemonster.gif');"
+       data-x="5200"></div>
+
+       <div class="popup absolute top-64 left-[5200px] w-[550px] h-[200px] bg-black p-4 rounded shadow z-30"
+       style="display: none; border: 2px solid white; border-radius: 12px;" data-x="5200">
+    <div class="text-xl font-bold mb-2 text-white">必要な知識もしっかりと取得</div>
+    <div class="text-sm leading-relaxed space-y-1 text-white ">
+      <p>　チーズ作りには、しっかりとした食に関する知識が欠かせません。</p>
+      <p>　チーズアカデミーでは、一流講師陣による、</p>
+      <p>　チーズ作りに必要ないろはを余すところなく学べます。</p>
+      <p>　チーズそのものでなく、栄養学全般を学ぶことも可能ですので、</p>
+      <p>　チーズ以外への展開も夢ではないでしょう。<span class="blinking">▼</span></p>
+    </div>
+   </div>
+
+   <div class="item absolute bottom-24 left-[6400px] w-60 h-60 bg-no-repeat bg-contain z-21"
+       style="background-image: url('./imgs/item.gif');"
+       data-x="6400">
+   </div>
+
+       <div class="popup absolute top-32 left-[6400px] w-[600px] h-[200px] bg-black p-4 rounded shadow z-30"
+            style="display: none; border: 2px solid white; border-radius: 12px;" data-x="6400">
+            <div class="text-xl font-bold mb-2 text-white">卒業制作はティスティング審査あり </div>
+            <div class="text-sm leading-relaxed space-y-1 text-white ">
+                <p>　チーズアカデミーでは最後の2ヶ月間で卒業制作を実施。</p>
+                <p>　卒業制作として、チーズ作りを実際に行います。卒業後、</p>
+                <p>　一般参加によるティスティング審査があるため、作り手の目線だけでなく、</p>
+                <p>　消費者の目線から、卒業制作作品としてのチーズを、</p>
+                <p>　しっかりと評価いただくことができます。<span class="blinking">▼</span></p>
+            </div>
+        </div>
+
+        
+        <div class="item absolute bottom-24 left-[7600px] w-60 h-60 bg-no-repeat bg-contain z-21"
+            style="background-image: url('./imgs/item.gif');"
+            data-x="7600"></div>
+
+            <div class="popup absolute top-6 left-[7600px] w-[500px] h-[500px] bg-black p-4 rounded shadow z-30"
+            style="display: none; border: 2px solid white; border-radius: 12px;" data-x="7600">
+            <p class="text-2xl text-center"><span class="blinking">!!NEW NEWS!!</span></p>
+            <img id="news-img" class="mx-auto" src="./imgs/news_img.jpg" alt=""><br>
+            <p>2016/11/18</p><br>
+            <p class="text-center">チーズアカデミー卒業生のコスゲさんによる</p>
+            <p class="text-center">チーズだけをふんだんに使用した話題のピザ屋</p>
+            <p class="text-center">「Kosuge Pizza」が渋谷でオープンしました！<span class="blinking">▼</span></p></p>
+            </div>
+
+       
+  
+    <script>
+      // 横スクロール
+      window.addEventListener('wheel', function(e) {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          window.scrollBy({
+            left: e.deltaY,
+            behavior: 'smooth'
+          });
+        }
+      }, { passive: false });
+  
+      // 複数のポップアップを制御
+      const popups = document.querySelectorAll('.popup');
+  
+      window.addEventListener('scroll', () => {
+        const heroX = window.scrollX + 100; // heroの位置を仮定
+  
+        popups.forEach(popup => {
+          const popupX = parseInt(popup.dataset.x); // 看板位置
+          const distance = Math.abs(heroX - popupX);
+  
+          if (distance < 180) {
+            popup.style.display = 'block';
+          } else {
+            popup.style.display = 'none';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
